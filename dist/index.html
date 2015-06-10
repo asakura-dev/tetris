@@ -7,10 +7,52 @@
 	<title></title>
 	<!-- CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
 	<script src="./js/main.js"></script>
 	<!-- CSS link -->
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
   </head>
   <body>
+	<!-- Game Body -->
+	<div class="game_wrapper">
+	  <!-- Start -->
+	  <div data-bind="template: {name: 'start_scene'}, visible: game_vm.mode() == 1"></div>
+	  <!-- Playing -->
+	  <div data-bind="template: {name: 'playing_scene'}, visible: game_vm.mode() == 2 || game_vm.mode() == 3"></div>
+	  <!-- Pause -->
+	  <div data-bind="template: {name: 'pause_cover'}, visible: game_vm.mode() == 3" class="pause_cover"></div>
+	</div>
+	  
+	<script type="text/html" id="start_scene">
+	  <div class="start_scene">
+		<img class="start_logo" src="./image/logo.png">
+		<div class="start_btn" data-bind="click: game_vm.start">スタート</div>
+	  </div>
+	</script>
+	
+	<script type="text/html" id="playing_scene">
+	  <div data-bind="template: {name: 'side_menu'}" class="side_menu"></div>
+	  <div data-bind="template: {name: 'tile', data: tile_vm }" class="tile"></div>
+	</script>
+	
+	<script type="text/html" id="side_menu">
+	  <button class="back_btn" data-bind="click: game_vm.reset">スタート画面へ</button><br>
+	  <button class="pause_btn" data-bind="click: game_vm.pause">ポーズ</button>
+	</script>
+	
+	<script type="text/html" id="tile">
+	  <div data-bind="foreach: square">
+		<div class="l-row clearfix">
+		  <div class="l-col" data-bind="foreach: $data">
+			<div class="square block" data-bind="css: $data.text"></div>
+		  </div>
+		</div>
+	  </div>
+	</script>
+
+	<script type="text/html" id="pause_cover">
+	  <img src="./image/pause.png">
+	  <button class="start_btn" data-bind="click: game_vm.start">再開</button>
+	</script>
   </body>
 </html>

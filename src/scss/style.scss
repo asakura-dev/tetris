@@ -1,6 +1,99 @@
-$primary-bg: #fff;
+$primary-bg: #F9F5D0;
 $secondary-bg: #999;
-
+$primary: #44C2B3;
+$primary-dark: #369B8F;
+$secondary: #44C2B3;
+$actived: #FF827D;
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
 body{
   background: $primary-bg;
+}
+.game_wrapper{
+  width:500px;
+  height:300px;
+  border:1px solid #ccc;
+  background:#FFDE05;
+  position:relative;
+}
+.pause_cover{
+  position:absolute;
+  top:0;
+  left:0;
+  img{
+	position:relative;
+	z-index:100;
+  }
+  .start_btn{
+	margin:-150px auto 0 auto;
+	display:block;
+	z-index:1000;
+	position:relative;
+  }
+}
+.tile{
+  float:left;
+  padding:15px;
+}
+.l-row{
+  margin:0;
+  padding:0;
+  
+}
+.l-col{
+  float:left;
+  margin:0;
+  padding:0;
+}
+.side_menu{
+  width:100px;
+  padding:10px;
+  float:left;
+  .back_btn, .pause_btn{
+	background:$primary;
+	border:1px solid $primary;
+	color:#fff;
+	border-radius:4px;
+	main:0 auto;
+  }
+}
+
+.square{
+  border:1px solid $primary;
+  width:10px;
+  height:10px;
+  background:#ffffff;
+  float:left;
+  &.actived{
+	background:$actived;
+  }
+  &.freezed{
+	background:$primary;
+  }
+}
+
+.start_logo{
+  display:block;
+  width:305px;
+  height:80px;
+  margin:60px auto 0 auto;
+}
+.start_btn{
+  margin:30px auto 0 auto;
+  text-align:center;
+  background:$primary;
+  border:1px solid $primary;
+  color:#fff;
+  border-radius:10px;
+  width:200px;
+  height:50px;
+  line-height:50px;
+  font-size:30px;
+  border-bottom:2px solid $primary-dark;
+  &:hover{
+	background: $primary-dark;
+  }
 }
