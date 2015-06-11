@@ -16,11 +16,15 @@
 	<!-- Game Body -->
 	<div class="game_wrapper">
 	  <!-- Start -->
-	  <div data-bind="template: {name: 'start_scene'}, visible: game_vm.mode() == 1"></div>
+	  <div data-bind="template: {name: 'start_scene'}, visible: game_vm.scene() == 1"></div>
 	  <!-- Playing -->
-	  <div data-bind="template: {name: 'playing_scene'}, visible: game_vm.mode() == 2 || game_vm.mode() == 3"></div>
+	  <div data-bind="template: {name: 'playing_scene'}, visible: game_vm.scene() == 2 || game_vm.scene() == 3"></div>
 	  <!-- Pause -->
-	  <div data-bind="template: {name: 'pause_cover'}, visible: game_vm.mode() == 3" class="pause_cover"></div>
+	  <div data-bind="template: {name: 'pause_cover'}, visible: game_vm.scene() == 3" class="cover">
+	  </div>
+	  <!-- GameOver -->
+	  <div data-bind="template: {name: 'game_over_cover'}, visible: game_vm.scene() == 4" class="cover">
+	  </div>
 	</div>
 	  
 	<script type="text/html" id="start_scene">
@@ -32,7 +36,7 @@
 	
 	<script type="text/html" id="playing_scene">
 	  <div data-bind="template: {name: 'side_menu'}" class="side_menu"></div>
-	  <div data-bind="template: {name: 'tile', data: tile_vm }" class="tile"></div>
+	  <div data-bind="template: {name: 'board', data: board_vm }" class="board"></div>
 	</script>
 	
 	<script type="text/html" id="side_menu">
@@ -40,8 +44,8 @@
 	  <button class="pause_btn" data-bind="click: game_vm.pause">ポーズ</button>
 	</script>
 	
-	<script type="text/html" id="tile">
-	  <div data-bind="foreach: square">
+	<script type="text/html" id="board">
+	  <div data-bind="foreach: squares">
 		<div class="l-row clearfix">
 		  <div class="l-col" data-bind="foreach: $data">
 			<div class="square block" data-bind="css: $data.text"></div>
@@ -53,6 +57,11 @@
 	<script type="text/html" id="pause_cover">
 	  <img src="./image/pause.png">
 	  <button class="start_btn" data-bind="click: game_vm.start">再開</button>
+	</script>
+	
+	<script type="text/html" id="game_over_cover">
+	  <img src="./image/game_over.png">
+	  <button class="start_btn" data-bind="click: game_vm.reset">スタートに戻る</button>
 	</script>
   </body>
 </html>

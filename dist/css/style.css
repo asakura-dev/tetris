@@ -13,20 +13,20 @@ body {
   background: #FFDE05;
   position: relative; }
 
-.pause_cover {
+.cover {
   position: absolute;
   top: 0;
   left: 0; }
-  .pause_cover img {
+  .cover img {
     position: relative;
     z-index: 100; }
-  .pause_cover .start_btn {
+  .cover .start_btn {
     margin: -150px auto 0 auto;
     display: block;
     z-index: 1000;
     position: relative; }
 
-.tile {
+.board {
   float: left;
   padding: 15px; }
 
@@ -48,7 +48,7 @@ body {
     border: 1px solid #44C2B3;
     color: #fff;
     border-radius: 4px;
-    main: 0 auto; }
+    margin: 0 auto 10px auto; }
 
 .square {
   border: 1px solid #44C2B3;
@@ -68,13 +68,14 @@ body {
   margin: 60px auto 0 auto; }
 
 .start_btn {
+  transition: all 0.5s;
   margin: 30px auto 0 auto;
   text-align: center;
   background: #44C2B3;
   border: 1px solid #44C2B3;
   color: #fff;
   border-radius: 10px;
-  width: 200px;
+  width: 250px;
   height: 50px;
   line-height: 50px;
   font-size: 30px;
