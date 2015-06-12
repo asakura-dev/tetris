@@ -701,6 +701,8 @@ $(function () {
 		return SBlock;
 	})(Block);
 
+	// 盤面の一つ一つのマス
+
 	var Square = function Square(value) {
 		var _this3 = this;
 
@@ -718,6 +720,8 @@ $(function () {
 			}
 		});
 	};
+
+	// 盤面
 
 	var BoardViewModel = (function () {
 		function BoardViewModel() {

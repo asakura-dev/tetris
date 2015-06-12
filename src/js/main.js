@@ -393,7 +393,8 @@ $(function(){
 			this.draw();
 		}
 	}
-	
+
+	// 盤面の一つ一つのマス
 	class Square{
 		constructor(value){
 			this.value = ko.observable(value);
@@ -409,6 +410,7 @@ $(function(){
 			});
 		}
 	}
+	// 盤面
 	class BoardViewModel{
 		constructor(){
 			var x;

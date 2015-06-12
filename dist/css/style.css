@@ -12,7 +12,8 @@ body {
   oveflow: hidden;
   border: 1px solid #ccc;
   background: #FFDE05;
-  position: relative; }
+  position: relative;
+  margin: 0 auto; }
 
 .cover {
   position: absolute;
