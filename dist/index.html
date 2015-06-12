@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<!-- for smart phone view -->
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<title></title>
+	<title>テトリス</title>
 	<!-- CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
@@ -37,6 +37,7 @@
 	<script type="text/html" id="playing_scene">
 	  <div data-bind="template: {name: 'side_menu'}" class="side_menu"></div>
 	  <div data-bind="template: {name: 'board', data: board_vm }" class="board"></div>
+	  <div data-bind="template: {name: 'score', data: score_vm }" class="score"></div>
 	</script>
 	
 	<script type="text/html" id="side_menu">
@@ -56,12 +57,30 @@
 
 	<script type="text/html" id="pause_cover">
 	  <img src="./image/pause.png">
-	  <button class="start_btn" data-bind="click: game_vm.start">再開</button>
+	  <div class="container">
+		<button class="start_btn" data-bind="click: game_vm.start">再開</button>
+	  </div>
 	</script>
 	
 	<script type="text/html" id="game_over_cover">
 	  <img src="./image/game_over.png">
-	  <button class="start_btn" data-bind="click: game_vm.reset">スタートに戻る</button>
+	  <div class="container">
+		<ul data-bind="with: $root.score_vm">
+		  <li>スコア：<span data-bind="text:score""></span></li>
+		  <li>消したライン：<span data-bind="text:line"></span></li>
+		  <span class="tweet" data-bind="click: tweet">つぶやく</span>
+		</ul>
+		<button class="start_btn" data-bind="click: game_vm.reset">スタートに戻る</button>
+	  </div>
+	</script>
+
+	<script type="text/html" id="score">
+	  <ul>
+		<li>レベル：<span data-bind="text:level"></span></li>
+		<li>スコア：<span data-bind="text:score""></span></li>
+		<li>消したライン：<span data-bind="text:line"></span></li>
+		<li>落下速度(ms)：<span data-bind="text:speed"></span></li>
+	  </li>
 	</script>
   </body>
 </html>

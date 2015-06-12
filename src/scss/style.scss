@@ -4,6 +4,8 @@ $primary: #44C2B3;
 $primary-dark: #369B8F;
 $secondary: #44C2B3;
 $actived: #FF827D;
+$height: 300px;
+$width: 500px;
 .clearfix:after {
   content: "";
   clear: both;
@@ -13,8 +15,9 @@ body{
   background: $primary-bg;
 }
 .game_wrapper{
-  width:500px;
-  height:300px;
+  width:$width;
+  height:$height;
+  oveflow:hidden;
   border:1px solid #ccc;
   background:#FFDE05;
   position:relative;
@@ -23,15 +26,51 @@ body{
   position:absolute;
   top:0;
   left:0;
+  .container{
+	margin:-150px auto 0 auto;
+	z-index:1000;
+	position:relative;
+  }
   img{
 	position:relative;
 	z-index:100;
+	width:$width;
+	height:$height;
+  }
+  ul{
+	margin:0 auto 10px auto;
+	width:230px;
+	border-radius:10px;
+	list-style:none;
+	background:$primary;
+	padding:10px;
+	.tweet{
+	  position: relative;
+	  margin: -32px 0 0 164px;
+	  display: block;
+	  width: 65px;
+	  line-height: 24px;
+	  color: #fff;
+	  text-align: center;
+	  font-size: 12px;
+	  background-color: #55ACEE;
+	  border: 1px solid #fff;
+	  border-radius: 4px;
+	}
+	li{
+	  color:#fff;
+	  font-size:15px;
+	  line-height:20px;
+	  span{
+		background:$primary;
+		color:#fff;
+		padding:2px;
+	  }
+	}
   }
   .start_btn{
-	margin:-150px auto 0 auto;
+	margin:0 auto;
 	display:block;
-	z-index:1000;
-	position:relative;
   }
 }
 .board{
@@ -92,9 +131,28 @@ body{
   width:250px;
   height:50px;
   line-height:50px;
-  font-size:30px;
+  font-size:25px;
   border-bottom:2px solid $primary-dark;
   &:hover{
 	background: $primary-dark;
+  }
+}
+
+.score{
+  float:left;
+  margin:10px;
+  ul{
+	list-style:none;
+	margin:0 0 0 0;
+	li{
+	  color:$primary;
+	  font-size:15px;
+	  line-height:20px;
+	  span{
+		background:$primary;
+		color:#fff;
+		padding:2px;
+	  }
+	}
   }
 }
