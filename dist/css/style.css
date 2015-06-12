@@ -9,7 +9,7 @@ body {
 .game_wrapper {
   width: 500px;
   height: 300px;
-  oveflow: hidden;
+  overflow: hidden;
   border: 1px solid #ccc;
   background: #FFDE05;
   position: relative;
