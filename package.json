@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "devDependencies": {
+    "babel-runtime": "^5.5.7",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
     "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0",
-    "gulp-sass": "^2.0.1"
+    "gulp-sass": "^2.0.1",
+    "vinyl-source-stream": "^1.1.0",
   }
 }
