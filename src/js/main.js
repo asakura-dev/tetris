@@ -1,4 +1,5 @@
 $(function(){
+	
 	// すべてのビューモデルを格納するビューモデル
 	var root_vm = {};
 	// テトリスの盤面のマスの数
@@ -346,10 +347,10 @@ $(function(){
 	class TBlock extends Block{
 		constructor(x,y){
 			super(x,y);
-			this.addTile(2,0);
+			this.addTile(1,0);
+			this.addTile(0,1);
+			this.addTile(1,1);
 			this.addTile(2,1);
-			this.addTile(2,2);
-			this.addTile(1,2);
 			this.checkGameOver();
 			this.draw();
 		}
