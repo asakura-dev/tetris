@@ -1,5 +1,4 @@
 $(function(){
-	
 	// すべてのビューモデルを格納するビューモデル
 	var root_vm = {};
 	// テトリスの盤面のマスの数
@@ -67,7 +66,7 @@ $(function(){
 			// this.method()ではなくroot_vm.game_vm.method()としている
 			root_vm.game_vm.scene(PLAYING);
 			root_vm.game_vm.stage.start();
-			root_vm.score_vm.reset();
+			
 		}
 		// ゲームオーバーにする
 		gameOver(){
@@ -80,6 +79,7 @@ $(function(){
 			root_vm.game_vm.scene(START);
 			root_vm.board_vm.reset();
 			root_vm.game_vm.stage.reset();
+			root_vm.score_vm.reset();
 		}
 		// ショップに入る
 		shop(){
